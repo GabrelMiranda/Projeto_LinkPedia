@@ -2,6 +2,27 @@ from django.shortcuts import render, redirect
 from core.forms import LoginForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from core.forms import LoginForm, LinkForm
+from core.models import LinkModel
+
+@login_required
+def cadastrar_link(request):
+
+    if request.method == 'POST':
+        form = LinkForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    else:
+        form = LinkForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'cadastrar_link.html', context)
 
 def login(request):
     if request.user.id is not None:
