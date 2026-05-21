@@ -6,6 +6,21 @@ from core.forms import LoginForm, LinkForm
 from core.models import LinkModel
 
 @login_required
+def listar_links(request):
+
+    links = LinkModel.objects.all()
+
+    context = {
+        'links': links
+    }
+
+    return render(
+        request,
+        'listar_links.html',
+        context
+    )
+
+@login_required
 def cadastrar_link(request):
 
     if request.method == 'POST':
