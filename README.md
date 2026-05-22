@@ -1,5 +1,9 @@
 # LinkPedia 🔗
 
+<p align="center">
+  <img src="Logo_LinkPedia.png" width="250">
+</p>
+
 Projeto desenvolvido com Django, com foco em praticar operações CRUD, autenticação de usuários e conceitos de TDD.
 
 ---
